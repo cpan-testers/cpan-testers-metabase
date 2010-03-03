@@ -11,6 +11,91 @@ use warnings;
 our $VERSION = '0.001';
 $VERSION = eval $VERSION; ## no critic
 
+use JSON ();
+use Metabase::Gateway ();
+
+#--------------------------------------------------------------------------#
+
+use namespace::autoclean;
+use Moose::Role;
+use MooseX::Params::Validate;
+
+requires  'public_librarian';
+requires  'public_librarian_config';
+
+requires  'private_librarian';
+requires  'private_librarian_config';
+
+has 'fact_classes' => (
+  is => 'ro',
+  isa => 'ArrayRef', 
+  default => sub { ['CPAN::Testers::Report'] }, 
+);
+
+has 'disable_security' => (
+  is => 'ro',
+  isa => 'Bool', 
+  default => 0
+);
+
+has 'allow_registration' => (
+  is => 'ro',
+  isa => 'Bool',
+  default => 1,
+);
+
+has 'gateway' => (
+  is => 'ro',
+  isa => 'Metabase::Gateway',
+  lazy => 1,
+  _builder => '_build_gateway',
+);
+
+sub _build_gateway {
+  my $self = shift;
+  return Metabase::Gateway->new(
+    public_librarian    => $self->public_librarian,
+    private_librarian   => $self->private_librarian,
+    fact_classes        => $self->fact_classes,
+    disable_security    => $self->disable_security,
+    allow_registration  => $self->allow_registration,
+  );
+}
+
+#--------------------------------------------------------------------------#
+# methods
+#--------------------------------------------------------------------------# 
+
+sub web_config {
+  my $self = shift;
+  my $config = {
+    'Model::Metabase' => {
+      gateway   => {
+        CLASS => 'Metabase::Gateway',
+        autocreate_profile => $self->autocreate_profile,
+        disable_security => $self->disable_security,  
+        public_librarian => {
+          CLASS => 'Metabase::Librarian',
+          %{ $self->public_librarian_config },
+        },
+        private_librarian => {
+          CLASS => 'Metabase::Librarian',
+          %{ $self->private_librarian_config },
+        },
+      },
+      fact_classes => [
+        'Metabase::User::Profile',
+        @{ $self->fact_classes },
+      ],
+    }
+  };
+
+  return JSON->new->encode($config);
+
+}
+
+__PACKAGE__->meta->make_immutable;
+
 1;
 
 __END__
@@ -19,7 +104,7 @@ __END__
 
 = NAME
 
-CPAN::Testers::Metabase - Add abstract here
+CPAN::Testers::Metabase - Instantiate a Metabase backend for CPAN Testers 
 
 = VERSION
 
@@ -27,7 +112,14 @@ This documentation describes version %%VERSION%%.
 
 = SYNOPSIS
 
-    use CPAN::Testers::Metabase;
+    use CPAN::Testers::Metabase::AWS;
+
+    my $mb = CPAN::Testers::Metabase::AWS->new( %aws_args );
+
+    my $librarian = $mb->public_librarian;
+    my $gateway = $mb->gateway;
+
+    print $mb->web_config;
 
 = DESCRIPTION
 
