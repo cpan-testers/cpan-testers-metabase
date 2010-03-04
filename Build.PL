@@ -24,7 +24,6 @@ my $build = $class->new(
         'Metabase::Index::SimpleDB' => 0,
         'Metabase::Librarian' => 0.002,
         'Moose' => 0.93,
-        'MooseX::Types::Path::Class' => 0.05,
         'namespace::autoclean' => 0.09,
     },
     build_requires => {

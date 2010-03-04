@@ -14,7 +14,6 @@ WriteMakefile
                            'Metabase::Index::SimpleDB' => 0,
                            'Metabase::Librarian' => '0.002',
                            'Moose' => '0.93',
-                           'MooseX::Types::Path::Class' => '0.05',
                            'Test::More' => '0.88',
                            'namespace::autoclean' => '0.09'
                          },

@@ -6,10 +6,10 @@ our $VERSION = "0.001";
 $VERSION = eval $VERSION;
 
 use Moose;
-use MooseX::Types::Path::Class qw/Dir/;
 use Metabase::Archive::SQLite;
 use Metabase::Index::FlatFile;
 use Metabase::Librarian;
+use Path::Class;
 use File::Temp;
 use namespace::autoclean;
 
@@ -17,8 +17,7 @@ with 'Metabase::Gateway';
 
 has 'data_directory' => (
   is        => 'ro',
-  isa       => 'Dir',
-  coerce    => 1,
+  isa       => 'Str',
   lazy      => 1,
   builder   => '_build_data_directory',
 );
@@ -44,8 +43,8 @@ sub _build_private_librarian { return $_[0]->__build_librarian("private") }
 sub __build_librarian {
   my ($self, $subspace) = @_;
 
-  my $data_dir = $self->data_directory->subdir($subspace);
-  $data_dir->mkpath;
+  my $data_dir = dir( $self->data_directory )->subdir($subspace);
+  $data_dir->mkpath or die "coudln't make path to $data_dir";
 
   my $index = $data_dir->file('index.json');
   $index->touch;
