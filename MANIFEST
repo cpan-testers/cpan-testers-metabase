@@ -20,3 +20,7 @@ xt/metayml.t
 xt/perlcriticrc
 xt/spelling.t
 xt/stopwords.txt
+lib/CPAN/Testers/Metabase/AWS.pod
+lib/CPAN/Testers/Metabase.pod
+Makefile.PL
+META.yml
