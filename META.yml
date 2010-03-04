@@ -22,6 +22,9 @@ provides:
   CPAN::Testers::Metabase:
     file: lib/CPAN/Testers/Metabase.pm
     version: 0.001
+  CPAN::Testers::Metabase::AWS:
+    file: lib/CPAN/Testers/Metabase/AWS.pm
+    version: 0.001
 requires:
   perl: 5.006
 resources:
