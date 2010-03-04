@@ -3,7 +3,9 @@ abstract: 'Instantiate a Metabase backend for CPAN Testers'
 author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
-  Test::More: 0.62
+  File::Find: 0
+  File::Spec: 3.31
+  Test::More: 0.88
 configure_requires:
   Module::Build: 0.36
 generated_by: 'Module::Build version 0.3603'
@@ -25,8 +27,20 @@ provides:
   CPAN::Testers::Metabase::AWS:
     file: lib/CPAN/Testers/Metabase/AWS.pm
     version: 0.001
+  CPAN::Testers::Metabase::Demo:
+    file: lib/CPAN/Testers/Metabase/Demo.pm
+    version: 0.001
 requires:
-  perl: 5.006
+  File::Temp: 0.2
+  Metabase::Archive::S3: 0.002
+  Metabase::Archive::SQLite: 0.002
+  Metabase::Index::FlatFile: 0.002
+  Metabase::Index::SimpleDB: 0
+  Metabase::Librarian: 0.002
+  Moose: 0.93
+  MooseX::Types::Path::Class: 0.05
+  namespace::autoclean: 0.09
+  perl: 0
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Metabase
   repository: http://github.com/dagolden/CPAN-Testers-Metabase/

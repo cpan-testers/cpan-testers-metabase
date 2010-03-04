@@ -15,19 +15,22 @@ my $build = $class->new(
     license => 'apache',
     create_readme => 1,
     create_makefile_pl  => 'traditional',
-
     requires => {
         'perl' => 0, # not specified
+        'File::Temp' => 0.20, # 0.14 in perl 5.006002; 0.20 in perl 5.008009; 
         'Metabase::Archive::S3' => 0.002,
+        'Metabase::Archive::SQLite' => 0.002,
+        'Metabase::Index::FlatFile' => 0.002,
         'Metabase::Index::SimpleDB' => 0,
         'Metabase::Librarian' => 0.002,
         'Moose' => 0.93,
+        'MooseX::Types::Path::Class' => 0.05,
         'namespace::autoclean' => 0.09,
     },
     build_requires => {
         'File::Find' => 0,
-        'File::Spec' => 3.31,
-        'Test::More' => 0.88,
+        'File::Spec' => 3.31, # 0.8 in perl 5.00504; 0.86 in perl 5.006002; 3.29 in perl 5.008009; 3.31 is new
+        'Test::More' => 0.88, # 0.47 in perl 5.006002; 0.80 in perl 5.008009; 
     },
     meta_add            => { 
         no_index => { 

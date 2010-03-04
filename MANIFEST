@@ -6,6 +6,8 @@ lib/CPAN/Testers/Metabase.pm
 lib/CPAN/Testers/Metabase.pod
 lib/CPAN/Testers/Metabase/AWS.pm
 lib/CPAN/Testers/Metabase/AWS.pod
+lib/CPAN/Testers/Metabase/Demo.pm
+lib/CPAN/Testers/Metabase/Demo.pod
 LICENSE
 Makefile.PL
 MANIFEST
