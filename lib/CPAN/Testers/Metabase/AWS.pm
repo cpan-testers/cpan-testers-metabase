@@ -60,9 +60,10 @@ sub _build_private_librarian { return $_[0]->__build_librarian("private") }
 sub __build_librarian {
   my ($self, $subspace) = @_;
 
+  my $bucket      = $self->bucket;
   my $namespace   = $self->namespace;
-  my $s3_prefix   = "metabase/$namespace/$subspace";
-  my $sdb_domain  = "cpantesters.metabase.$namespace.$subspace";
+  my $s3_prefix   = "metabase/${namespace}/${subspace}";
+  my $sdb_domain  = "${bucket}.metabase.${namespace}.${subspace}";
 
   return Metabase::Librarian->new(
     archive => Metabase::Archive::S3->new(
