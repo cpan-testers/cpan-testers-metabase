@@ -9,6 +9,7 @@ use Moose;
 use Metabase::Archive::S3;
 use Metabase::Index::SimpleDB;
 use Metabase::Librarian;
+use Net::Amazon::Config;
 use namespace::autoclean;
 
 with 'Metabase::Gateway';
