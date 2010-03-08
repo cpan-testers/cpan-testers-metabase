@@ -32,12 +32,14 @@ provides:
     version: 0.001
 requires:
   File::Temp: 0.2
-  Metabase::Archive::S3: 0.002
-  Metabase::Archive::SQLite: 0.002
-  Metabase::Index::FlatFile: 0.002
-  Metabase::Index::SimpleDB: 0
-  Metabase::Librarian: 0.002
+  Metabase::Archive::S3: 0.003
+  Metabase::Archive::SQLite: 0.003
+  Metabase::Index::FlatFile: 0.003
+  Metabase::Index::SimpleDB: 0.003
+  Metabase::Librarian: 0.003
   Moose: 0.93
+  Net::Amazon::Config: 0.001
+  Path::Class: 0.17
   namespace::autoclean: 0.09
   perl: 0
 resources:
