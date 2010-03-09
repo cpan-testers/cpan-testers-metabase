@@ -8,7 +8,7 @@ package CPAN::Testers::Metabase;
 use strict;
 use warnings;
 
-our $VERSION = '0.001';
+our $VERSION = '1.999';
 $VERSION = eval $VERSION; ## no critic
 
 1;

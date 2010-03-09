@@ -23,13 +23,13 @@ no_index:
 provides:
   CPAN::Testers::Metabase:
     file: lib/CPAN/Testers/Metabase.pm
-    version: 0.001
+    version: 1.999
   CPAN::Testers::Metabase::AWS:
     file: lib/CPAN/Testers/Metabase/AWS.pm
-    version: 0.001
+    version: 1.999
   CPAN::Testers::Metabase::Demo:
     file: lib/CPAN/Testers/Metabase/Demo.pm
-    version: 0.001
+    version: 1.999
 requires:
   File::Temp: 0.2
   Metabase::Archive::S3: 0.003
@@ -45,4 +45,4 @@ requires:
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Metabase
   repository: http://github.com/dagolden/CPAN-Testers-Metabase/
-version: 0.001
+version: 1.999

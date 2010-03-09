@@ -2,7 +2,7 @@ package CPAN::Testers::Metabase::AWS;
 use strict;
 use warnings;
 
-our $VERSION = "0.001";
+our $VERSION = '1.999';
 $VERSION = eval $VERSION;
 
 use Moose;
