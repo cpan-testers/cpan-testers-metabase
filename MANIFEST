@@ -16,6 +16,9 @@ META.yml
 README
 t/00-compile.t
 t/01-CPAN-Testers-Metabase.t
+t/02-aws.t
+t/03-demo.t
+t/config/profiles.conf
 Todo
 xt/critic.t
 xt/kwalitee.t
@@ -25,4 +28,3 @@ xt/pod-coverage.t
 xt/pod-format.t
 xt/spelling.t
 xt/stopwords.txt
-t/02-aws.t

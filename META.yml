@@ -41,7 +41,7 @@ requires:
   Net::Amazon::Config: 0.001
   Path::Class: 0.17
   namespace::autoclean: 0.09
-  perl: 0
+  perl: 5.006
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Metabase
   repository: http://github.com/dagolden/CPAN-Testers-Metabase/
