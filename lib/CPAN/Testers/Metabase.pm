@@ -47,6 +47,9 @@ See specific classes for more detail:
 * [CPAN::Testers::Metabase::AWS] -- storage and indexing with
 Amazon Web Services
 
+* [CPAN::Testers::Metabase::Demo] -- SQLite archive and flat-file
+index (for test/demo purposes only)
+
 = BUGS
 
 Please report any bugs or feature requests using the CPAN Request Tracker  

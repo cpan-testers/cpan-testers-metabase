@@ -35,13 +35,27 @@ This documentation describes version 0.001.
 
 =head1 DESCRIPTION
 
-(Need to discuss how this uses Net::Amazon::Config)
+This class instantiates a Metabase backend on the S3 and SimpleDB Amazon 
+Web Services (AWS).  It uses L<Net::Amazon::Config> to provide user credentials
+and the L<Metabase::Gateway> Role to provide actual functionality.  As such,
+it is mostly glue to get the right credentials to setup AWS clients and provide
+them with standard resource names.
+
+For example, given the C<<< bucket >>> "example" and the C<<< namespace >>> "alpha",
+the following resource names would be used:
+
+   Public S3: http://example.s3.amazonaws.com/metabase/alpha/public/*
+   Public SDB domain: example.metabase.alpha.public
+ 
+   Private S3: http://example.s3.amazonaws.com/metabase/alpha/private/*
+   Private SDB domain: example.metabase.alpha.private
 
 =head1 USAGE
 
-=head2 new()
+=head2 new
 
    my $mb = CPAN::Testers::Metabase::AWS->new( 
+     bucket    => 'myS3bucket',
      namespace     => 'prod', 
      profile_name  => 'cpantesters',
    );
@@ -53,14 +67,15 @@ Arguments for C<<< new >>>:
 =item *
 
 C<<< bucket >>> -- required -- the Amazon S3 bucket name to hold both public and private
-fact content
+fact content.  Bucket names must be unique across all of AWS.  The bucket
+name is also used as part of the SimpleDB namespace for consistency.
 
 =item *
 
 C<<< namespace >>> -- required -- a short phrase that uniquely identifies this
 metabase.  E.g. "dev", "test" or "prod".  It is used to specify
-specific locations within the S3 bucket and to uniquely identify an
-Amazon SimpleDB domain for indexing.
+specific locations within the S3 bucket and to uniquely identify a SimpleDB 
+domain for indexing.
 
 =item *
 
@@ -129,6 +144,10 @@ L<Metabase::Gateway>
 =item *
 
 L<Metabase::Web>
+
+=item *
+
+L<Net::Amazon::Config>
 
 =back
 

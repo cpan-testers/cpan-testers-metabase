@@ -98,6 +98,19 @@ This documentation describes version %%VERSION%%.
 This is a demo Metabase backend that uses SQLite and a flat file in
 a temporary directory.
 
+= USAGE
+
+== new
+
+  my $mb = CPAN::Testers::Metabase::AWS->new( 
+    data_directory => "/tmp/my-metabase"
+  );
+
+Arguments for {new}:
+
+* {data_directory} -- optional -- directory path to store data files.  Defaults
+to a [File::Temp] temporary directory
+
 = BUGS
 
 Please report any bugs or feature requests using the CPAN Request Tracker  

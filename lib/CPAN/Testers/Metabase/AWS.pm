@@ -121,13 +121,27 @@ This documentation describes version %%VERSION%%.
 
 = DESCRIPTION
 
-(Need to discuss how this uses Net::Amazon::Config)
+This class instantiates a Metabase backend on the S3 and SimpleDB Amazon 
+Web Services (AWS).  It uses [Net::Amazon::Config] to provide user credentials
+and the [Metabase::Gateway] Role to provide actual functionality.  As such,
+it is mostly glue to get the right credentials to setup AWS clients and provide
+them with standard resource names.
+
+For example, given the {bucket} "example" and the {namespace} "alpha",
+the following resource names would be used:
+
+  Public S3: http://example.s3.amazonaws.com/metabase/alpha/public/*
+  Public SDB domain: example.metabase.alpha.public
+
+  Private S3: http://example.s3.amazonaws.com/metabase/alpha/private/*
+  Private SDB domain: example.metabase.alpha.private
 
 = USAGE
 
-== new()
+== new
 
   my $mb = CPAN::Testers::Metabase::AWS->new( 
+    bucket    => 'myS3bucket',
     namespace     => 'prod', 
     profile_name  => 'cpantesters',
   );
@@ -135,11 +149,12 @@ This documentation describes version %%VERSION%%.
 Arguments for {new}:
 
 * {bucket} -- required -- the Amazon S3 bucket name to hold both public and private
-fact content
+fact content.  Bucket names must be unique across all of AWS.  The bucket
+name is also used as part of the SimpleDB namespace for consistency.
 * {namespace} -- required -- a short phrase that uniquely identifies this
 metabase.  E.g. "dev", "test" or "prod".  It is used to specify
-specific locations within the S3 bucket and to uniquely identify an
-Amazon SimpleDB domain for indexing.
+specific locations within the S3 bucket and to uniquely identify a SimpleDB 
+domain for indexing.
 * {amazon_config} -- optional -- a [Net::Amazon::Config] object containing
 Amazon Web Service credentials.  If not provided, one will be created using
 the default location for the config file.
@@ -178,6 +193,7 @@ existing test-file that illustrates the bug or desired feature.
 * [CPAN::Testers::Metabase]
 * [Metabase::Gateway]
 * [Metabase::Web]
+* [Net::Amazon::Config]
 
 = AUTHOR
 

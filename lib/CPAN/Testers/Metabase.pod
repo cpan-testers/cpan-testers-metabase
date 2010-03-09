@@ -38,6 +38,15 @@ Amazon Web Services
 
 =back
 
+=over
+
+=item *
+
+L<CPAN::Testers::Metabase::Demo> -- SQLite archive and flat-file
+index (for testE<sol>demo purposes only)
+
+=back
+
 =head1 BUGS
 
 Please report any bugs or feature requests using the CPAN Request Tracker  
