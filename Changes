@@ -2,6 +2,8 @@ Revision history for CPAN-Testers-Metabase
 
 {{$NEXT}}
 
+1.999001  2010-04-23 15:40:49 EST5EDT
+
     - ensure S3 prefix has a trailing slash
 
     - enable S3 retry with exponential backoff
