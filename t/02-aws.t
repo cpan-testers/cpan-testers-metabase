@@ -43,7 +43,7 @@ for my $zone ( qw/public private/ ) {
   is( $archive->bucket, $bucket, 
     "$zone: correct S3 bucket"
   );
-  is( $archive->prefix, "metabase/${namespace}/${zone}", 
+  is( $archive->prefix, "metabase/${namespace}/${zone}/", 
     "$zone: correct S3 prefix"
   );
 
