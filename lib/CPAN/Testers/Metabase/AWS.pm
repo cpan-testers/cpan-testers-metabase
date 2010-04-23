@@ -72,6 +72,7 @@ sub __build_librarian {
       bucket            => $self->bucket,
       prefix            => $s3_prefix,
       compressed        => 1,
+      retry             => 1,
     ),
     index => Metabase::Index::SimpleDB->new(
       access_key_id     => $self->access_key_id,
