@@ -2,6 +2,8 @@ Revision history for CPAN-Testers-Metabase
 
 {{$NEXT}}
 
+1.999002  2012-05-18 10:39:55 America/New_York
+
     - CPAN::Testers::Metabase::AWS split out into a separate
       distribution
 
