@@ -10,7 +10,6 @@ use warnings;
 use File::Temp ();
 use Path::Class qw/dir file/;
 use Test::More; 
-END { done_testing }
 
 # Work around buffering that can show diags out of order
 Test::More->builder->failure_output(*STDOUT) if $ENV{HARNESS_VERBOSE};
@@ -42,3 +41,5 @@ for my $zone ( qw/public private/ ) {
     "$zone: correct flatfile filename"
   );
 }
+
+done_testing;
