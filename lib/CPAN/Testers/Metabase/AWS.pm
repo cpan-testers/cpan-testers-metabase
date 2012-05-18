@@ -5,9 +5,9 @@ package CPAN::Testers::Metabase::AWS;
 # VERSION
 
 use Moose;
-use Metabase::Archive::S3;
-use Metabase::Index::SimpleDB;
-use Metabase::Librarian;
+use Metabase::Archive::S3 1.000;
+use Metabase::Index::SimpleDB 1.000;
+use Metabase::Librarian 1.000;
 use Net::Amazon::Config;
 use namespace::autoclean;
 

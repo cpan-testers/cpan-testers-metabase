@@ -5,9 +5,9 @@ package CPAN::Testers::Metabase::MongoDB;
 # VERSION
 
 use Moose;
-use Metabase::Archive::MongoDB;
-use Metabase::Index::MongoDB;
-use Metabase::Librarian;
+use Metabase::Archive::MongoDB 1.000;
+use Metabase::Index::MongoDB 1.000;
+use Metabase::Librarian 1.000;
 use namespace::autoclean;
 
 with 'Metabase::Gateway';

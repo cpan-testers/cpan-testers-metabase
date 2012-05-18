@@ -5,9 +5,9 @@ package CPAN::Testers::Metabase::Demo;
 # VERSION
 
 use Moose;
-use Metabase::Archive::SQLite;
-use Metabase::Index::FlatFile;
-use Metabase::Librarian;
+use Metabase::Archive::SQLite 1.000;
+use Metabase::Index::FlatFile 1.000;
+use Metabase::Librarian 1.000;
 use Path::Class;
 use File::Temp;
 use namespace::autoclean;
