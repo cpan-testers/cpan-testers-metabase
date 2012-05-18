@@ -2,6 +2,9 @@ Revision history for CPAN-Testers-Metabase
 
 {{$NEXT}}
 
+    - CPAN::Testers::Metabase::AWS split out into a separate
+      distribution
+
 1.999001  2010-04-23 15:40:49 EST5EDT
 
     - ensure S3 prefix has a trailing slash
