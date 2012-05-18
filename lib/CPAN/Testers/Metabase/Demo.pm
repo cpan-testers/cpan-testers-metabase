@@ -2,6 +2,7 @@ use strict;
 use warnings;
 package CPAN::Testers::Metabase::Demo;
 # ABSTRACT: Demo Metabase backend
+# VERSION
 
 use Moose;
 use Metabase::Archive::SQLite;
@@ -100,14 +101,6 @@ Arguments for {new}:
 
 * {data_directory} -- optional -- directory path to store data files.  Defaults
 to a [File::Temp] temporary directory
-
-= BUGS
-
-Please report any bugs or feature requests using the CPAN Request Tracker  
-web interface at [http://rt.cpan.org/Dist/Display.html?Queue=CPAN-Testers-Metabase]
-
-When submitting a bug or request, please include a test-file or a patch to an
-existing test-file that illustrates the bug or desired feature.
 
 = SEE ALSO
 

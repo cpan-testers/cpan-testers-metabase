@@ -2,6 +2,7 @@ use strict;
 use warnings;
 package CPAN::Testers::Metabase::AWS;
 # ABSTRACT: Metabase backend on Amazon Web Services
+# VERSION
 
 use Moose;
 use Metabase::Archive::S3;
@@ -170,14 +171,6 @@ methods:
 * {enqueue}
 
 see [Metabase::Gateway] for more.
-
-= BUGS
-
-Please report any bugs or feature requests using the CPAN Request Tracker  
-web interface at [http://rt.cpan.org/Dist/Display.html?Queue=CPAN-Testers-Metabase]
-
-When submitting a bug or request, please include a test-file or a patch to an
-existing test-file that illustrates the bug or desired feature.
 
 = SEE ALSO
 
